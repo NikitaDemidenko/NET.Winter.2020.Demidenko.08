@@ -11,9 +11,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FilterArrayPalindrome", "Fi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FilterArrayPalindrome.Tests", "FilterArrayPalindrome.Tests\FilterArrayPalindrome.Tests.csproj", "{3C6E95AD-FED2-4B20-9312-D837C0E9209B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FilterTemplateMethod", "FIlterDigitTemplateMethod\FilterTemplateMethod.csproj", "{28CCC5A2-8EDC-4119-8E30-73A6AD5EC739}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FilterTemplateMethod", "FIlterDigitTemplateMethod\FilterTemplateMethod.csproj", "{28CCC5A2-8EDC-4119-8E30-73A6AD5EC739}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FilterTemplateMethod.Tests", "FilterDigitTemplateMethod.Tests\FilterTemplateMethod.Tests.csproj", "{51158A6D-D25B-466D-901A-EF0E539203EF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FilterTemplateMethod.Tests", "FilterDigitTemplateMethod.Tests\FilterTemplateMethod.Tests.csproj", "{51158A6D-D25B-466D-901A-EF0E539203EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransformerToWords", "TransformerToWords\TransformerToWords.csproj", "{7CBD4514-FC26-47D7-9A48-97ED1C33AF4D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FilterExtensionMethod", "FilterExtensionMethod\FilterExtensionMethod.csproj", "{CB525697-C863-4347-AEDB-EEE9204FADFA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -97,6 +101,30 @@ Global
 		{51158A6D-D25B-466D-901A-EF0E539203EF}.Release|x64.Build.0 = Release|Any CPU
 		{51158A6D-D25B-466D-901A-EF0E539203EF}.Release|x86.ActiveCfg = Release|Any CPU
 		{51158A6D-D25B-466D-901A-EF0E539203EF}.Release|x86.Build.0 = Release|Any CPU
+		{7CBD4514-FC26-47D7-9A48-97ED1C33AF4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CBD4514-FC26-47D7-9A48-97ED1C33AF4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CBD4514-FC26-47D7-9A48-97ED1C33AF4D}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{7CBD4514-FC26-47D7-9A48-97ED1C33AF4D}.Debug|x64.Build.0 = Debug|Any CPU
+		{7CBD4514-FC26-47D7-9A48-97ED1C33AF4D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{7CBD4514-FC26-47D7-9A48-97ED1C33AF4D}.Debug|x86.Build.0 = Debug|Any CPU
+		{7CBD4514-FC26-47D7-9A48-97ED1C33AF4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CBD4514-FC26-47D7-9A48-97ED1C33AF4D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7CBD4514-FC26-47D7-9A48-97ED1C33AF4D}.Release|x64.ActiveCfg = Release|Any CPU
+		{7CBD4514-FC26-47D7-9A48-97ED1C33AF4D}.Release|x64.Build.0 = Release|Any CPU
+		{7CBD4514-FC26-47D7-9A48-97ED1C33AF4D}.Release|x86.ActiveCfg = Release|Any CPU
+		{7CBD4514-FC26-47D7-9A48-97ED1C33AF4D}.Release|x86.Build.0 = Release|Any CPU
+		{CB525697-C863-4347-AEDB-EEE9204FADFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB525697-C863-4347-AEDB-EEE9204FADFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB525697-C863-4347-AEDB-EEE9204FADFA}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{CB525697-C863-4347-AEDB-EEE9204FADFA}.Debug|x64.Build.0 = Debug|Any CPU
+		{CB525697-C863-4347-AEDB-EEE9204FADFA}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{CB525697-C863-4347-AEDB-EEE9204FADFA}.Debug|x86.Build.0 = Debug|Any CPU
+		{CB525697-C863-4347-AEDB-EEE9204FADFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB525697-C863-4347-AEDB-EEE9204FADFA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB525697-C863-4347-AEDB-EEE9204FADFA}.Release|x64.ActiveCfg = Release|Any CPU
+		{CB525697-C863-4347-AEDB-EEE9204FADFA}.Release|x64.Build.0 = Release|Any CPU
+		{CB525697-C863-4347-AEDB-EEE9204FADFA}.Release|x86.ActiveCfg = Release|Any CPU
+		{CB525697-C863-4347-AEDB-EEE9204FADFA}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
