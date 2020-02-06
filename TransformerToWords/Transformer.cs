@@ -10,81 +10,56 @@ namespace TransformerToWords
     {
         /// <summary>Space symbol.</summary>
         public const char SpaceSymbol = ' ';
-        private readonly Dictionary<double, string> specialValuesDictionary = new Dictionary<double, string>
-        {
-            [double.NaN] = null,
-            [double.NegativeInfinity] = null,
-            [double.PositiveInfinity] = null,
-            [double.Epsilon] = null,
-        };
 
-        private readonly Dictionary<char, string> symbolsDictionary = new Dictionary<char, string>
-        {
-            ['0'] = null,
-            ['1'] = null,
-            ['2'] = null,
-            ['3'] = null,
-            ['4'] = null,
-            ['5'] = null,
-            ['6'] = null,
-            ['7'] = null,
-            ['8'] = null,
-            ['9'] = null,
-            ['-'] = null,
-            ['+'] = null,
-            ['E'] = null,
-            ['.'] = null,
-        };
+        /// <summary>Gets the special values dictionary.</summary>
+        /// <value>Special values dictionary.</value>
+        protected abstract Dictionary<double, string> SpecialValuesDictionary { get; }
+
+        /// <summary>Gets the symbols dictionary.</summary>
+        /// <value>Symbols dictionary.</value>
+        protected abstract Dictionary<char, string> SymbolsDictionary { get; }
 
         /// <summary>Transforms double to its string representation.</summary>
         /// <param name="number">Number.</param>
         /// <returns>Returns number's string representation.</returns>
         public string TransformToWords(double number)
         {
-            this.SetSpecialValuesStringRepresentation(this.specialValuesDictionary);
             if (double.IsNaN(number))
             {
-                return this.specialValuesDictionary[number] ?? throw new NullReferenceException();
+                return this.SpecialValuesDictionary[number] ?? throw new NullReferenceException("Value cannot be null.");
             }
 
             if (double.IsNegativeInfinity(number))
             {
-                return this.specialValuesDictionary[number] ?? throw new NullReferenceException();
+                return this.SpecialValuesDictionary[number] ?? throw new NullReferenceException("Value cannot be null.");
             }
 
             if (double.IsPositiveInfinity(number))
             {
-                return this.specialValuesDictionary[number] ?? throw new NullReferenceException();
+                return this.SpecialValuesDictionary[number] ?? throw new NullReferenceException("Value cannot be null.");
             }
 
             if (number == double.Epsilon)
             {
-                return this.specialValuesDictionary[number] ?? throw new NullReferenceException();
+                return this.SpecialValuesDictionary[number] ?? throw new NullReferenceException("Value cannot be null.");
             }
 
-            this.SetSymbolsStringRepresentation(this.symbolsDictionary);
             var result = new StringBuilder();
-            var numberString = number.ToString(CultureInfo.InvariantCulture);
+            var numberString = number.ToString(CultureInfo.CurrentCulture);
             foreach (char letter in numberString)
             {
-                if (this.symbolsDictionary[letter] == null)
+                if (this.SymbolsDictionary[letter] != null)
                 {
-                    throw new NullReferenceException();
+                    result.Append(this.SymbolsDictionary[letter] + SpaceSymbol);
                 }
-
-                result.Append(this.symbolsDictionary[letter] + SpaceSymbol);
+                else
+                {
+                    throw new NullReferenceException("Value cannot be null.");
+                }
             }
 
             result.Remove(result.Length - 1, 1);
             return result.ToString();
         }
-
-        /// <summary>Sets special values' string representation.</summary>
-        /// <param name="specialValuesDictionary">Special values dictionary.</param>
-        protected abstract void SetSpecialValuesStringRepresentation(Dictionary<double, string> specialValuesDictionary);
-
-        /// <summary>Sets symbols' string representation.</summary>
-        /// <param name="symbolsDictionary">Symbols dictionary.</param>
-        protected abstract void SetSymbolsStringRepresentation(Dictionary<char, string> symbolsDictionary);
     }
 }
