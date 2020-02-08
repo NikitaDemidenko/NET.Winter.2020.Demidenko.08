@@ -24,37 +24,28 @@ namespace TransformerToWords
         /// <returns>Returns number's string representation.</returns>
         public string TransformToWords(double number)
         {
-            if (double.IsNaN(number))
+            if (this.SpecialValuesDictionary.TryGetValue(number, out string specialValueResult))
             {
-                return this.SpecialValuesDictionary[number] ?? throw new NullReferenceException("Value cannot be null.");
-            }
-
-            if (double.IsNegativeInfinity(number))
-            {
-                return this.SpecialValuesDictionary[number] ?? throw new NullReferenceException("Value cannot be null.");
-            }
-
-            if (double.IsPositiveInfinity(number))
-            {
-                return this.SpecialValuesDictionary[number] ?? throw new NullReferenceException("Value cannot be null.");
-            }
-
-            if (number == double.Epsilon)
-            {
-                return this.SpecialValuesDictionary[number] ?? throw new NullReferenceException("Value cannot be null.");
+                return specialValueResult;
             }
 
             var result = new StringBuilder();
             var numberString = number.ToString(CultureInfo.CurrentCulture);
-            foreach (char letter in numberString)
+            string symbolStringRepresentation;
+            foreach (char symbol in numberString)
             {
-                if (this.SymbolsDictionary[letter] != null)
+                if (this.SymbolsDictionary.TryGetValue(symbol, out symbolStringRepresentation))
                 {
-                    result.Append(this.SymbolsDictionary[letter] + SpaceSymbol);
+                    if (symbolStringRepresentation == null)
+                    {
+                        throw new InvalidOperationException("Value is null.");
+                    }
+
+                    result.Append(symbolStringRepresentation + SpaceSymbol);
                 }
                 else
                 {
-                    throw new NullReferenceException("Value cannot be null.");
+                    throw new InvalidOperationException("Key not found.");
                 }
             }
 
