@@ -12,27 +12,15 @@ namespace Notebook.Tests
         Note fourthNote = new Note("FGA", "wqert");
 
         [Test]
-        public void EqualsTest_ReturnedTrue() => Assert.That(thirdNote == fourthNote);
+        public void EqualsTest_ReturnedTrue() => Assert.That(thirdNote.Equals(fourthNote));
 
         [Test]
-        public void EqualsTest_ReturnedFalse() => Assert.That(firstNote != secondNote);
+        public void EqualsTest_ReturnedFalse() => Assert.That(!firstNote.Equals(secondNote));
 
         [Test]
         public void GetHashCodeTest_ReturnedTrue() => Assert.That(thirdNote.GetHashCode() == fourthNote.GetHashCode());
 
         [Test]
         public void GetHashCodeTest_ReturnedFalse() => Assert.That(secondNote.GetHashCode() != firstNote.GetHashCode());
-
-        [Test]
-        public void MoreThanTests_Returnedtrue()
-        {
-            Assert.That(secondNote > firstNote);
-        }
-
-        [Test]
-        public void MoreOrEqualsThanTests_Returnedtrue()
-        {
-            Assert.That(thirdNote <= fourthNote);
-        }
     }
 }
